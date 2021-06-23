@@ -308,48 +308,52 @@ function min(a, b) {
 }
 
 // pow(x,n) 함수 만들기
-// x의 n제곱을 반환해주는 함수, pow(x,n)를 만들어보세요. 
+// x의 n제곱을 반환해주는 함수, pow(x,n)를 만들어보세요.
 // x의 n 제곱은 x를 n번 곱해서 만들 수 있습니다.
-pow(3, 2) = 3 * 3 = 9
-pow(3, 3) = 3 * 3 * 3 = 27
-pow(1, 100) = 1 * 1 * ...* 1 = 1
+// pow(3, 2) = 3 * 3 //= 9
+// pow(3, 3) = 3 * 3 * 3 //= 27
+// pow(1, 100) = 1 * 1 * ...* 1 //= 1
 
-// 프롬프트 대화상자를 띄워 사용자로부터 x와 n을 입력받고 
+// 프롬프트 대화상자를 띄워 사용자로부터 x와 n을 입력받고
 // pow(x,n)의 반환 값을 보여주는 코드를 작성해 보세요.
 
-// 주의사항: n은 1 이상의 자연수이어야 합니다. 
+// 주의사항: n은 1 이상의 자연수이어야 합니다.
 // 이외의 경우엔 자연수를 입력하라는 얼럿 창을 띄워주어야 합니다.
 
-function pow(x,n){
-  let result = 1
-  for(let i = 1; i <=n; i++ ){
+function pow(x, n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
     result = result * x;
   }
   return result;
 }
-let x = prompt("x?","")
-let n = prompt("n?","")
+let x = prompt("x?", "");
+let n = prompt("n?", "");
 
-if (n < 1){
-    alert("자연수를 입력하세요!")
+if (n < 1) {
+  alert("자연수를 입력하세요!");
 } else {
-    alert (pow(x,n))
+  alert(pow(x, n));
 }
 
 // 화살표 함수로 변경하기
 function ask(question, yes, no) {
-    if (confirm(question)) yes()
-    else no();
-  }
-  
-  ask(
-    "동의하십니까?",
-    function() { alert("동의하셨습니다."); },
-    function() { alert("취소 버튼을 누르셨습니다."); }
-  );
+  if (confirm(question)) yes();
+  else no();
+}
 
-ask ("동의하십니까?",
-() => alert("동의하셨습니다."),
-() => alert("취소 버튼을 누르셨습니다.")
+ask(
+  "동의하십니까?",
+  function () {
+    alert("동의하셨습니다.");
+  },
+  function () {
+    alert("취소 버튼을 누르셨습니다.");
+  }
 );
 
+ask(
+  "동의하십니까?",
+  () => alert("동의하셨습니다."),
+  () => alert("취소 버튼을 누르셨습니다.")
+);
