@@ -624,3 +624,144 @@ let sorted = copySorted(arr);
 
 alert(sorted);
 alert(arr);
+
+// 이름 매핑하기
+// name을 나타내는 프로퍼티를 가진 객체 user가 담긴 배열이 있습니다.
+// name의 값만 담은 새로운 배열을 만들어주는 코드를 작성해보세요.
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names = users.map((item) => item.name);
+
+alert(names); // John, Pete, Mary
+
+// 객체 매핑하기
+// 세 개의 프로퍼티 name과 surname, id를 가진 객체 user가 담긴 배열이 있습니다.
+// name과 surname을 조합해 fullName을 만들고,
+// 이를 이용해 두 개의 프로퍼티 id와 fullName을 가진 객체를 담은 새로운 배열을 반환해주는 코드를 작성해보세요.
+
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped = users.map((user) => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id,
+}));
+
+/*
+usersMapped = [
+  { fullName: "John Smith", id: 1 },
+  { fullName: "Pete Hunt", id: 2 },
+  { fullName: "Mary Key", id: 3 }
+]
+*/
+
+alert(usersMapped[0].id); // 1
+alert(usersMapped[0].fullName); // John Smith
+
+// 나이를 기준으로 객체 정렬하기
+// 프로퍼티 age가 있는 객체가 담긴 배열이 있습니다.
+// 이 배열을 age를 기준으로 정렬해주는 함수 sortByAge(users)를 만들어보세요.
+
+function sortByAge(users) {
+  users.sort((a, b) => a.age - b.age);
+}
+
+// 배열 요소 무작위로 섞기
+// 배열의 요소를 무작위로 섞어주는 함수 shuffle(array)을 작성해 보세요.
+
+// shuffle을 여러 번 실행하면 요소의 정렬 순서가 달라야 합니다. 예시를 살펴봅시다.
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// 1, 2, 3으로 만들 수 있는 모든 순열의 빈도를 세줍니다.
+let count = {
+  123: 0,
+  132: 0,
+  213: 0,
+  231: 0,
+  321: 0,
+  312: 0,
+};
+
+for (let i = 0; i < 1000000; i++) {
+  let array = [1, 2, 3];
+  shuffle(array);
+  count[array.join("")]++;
+}
+
+// 만들 수 있는 모든 순열의 생성 빈도를 세서 출력해줍니다.
+for (let key in count) {
+  alert(`${key}: ${count[key]}`);
+}
+
+// 평균 나이 구하기
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// 1, 2, 3으로 만들 수 있는 모든 순열의 빈도를 세줍니다.
+let count = {
+  123: 0,
+  132: 0,
+  213: 0,
+  231: 0,
+  321: 0,
+  312: 0,
+};
+
+for (let i = 0; i < 1000000; i++) {
+  let array = [1, 2, 3];
+  shuffle(array);
+  count[array.join("")]++;
+}
+
+// 평균 나이 구하기
+// age를 나타내는 프로퍼티를 가진 객체가 여러 개 담긴 배열이 있습니다.
+// 평균 나이를 반환해주는 함수 getAverageAge(users)를 작성해보세요.
+
+// 평균을 구하는 공식은 (age1 + age2 + ... + ageN) / N 입니다.
+
+function getAverageAge(users) {
+  return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+}
+
+// 중복 없는 요소 찾아내기
+function unique(arr) {
+  let result = [];
+
+  for (let str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+  return result;
+}
+
+// Create keyed object from array
+Let’s say we received an array of users in the form {id:..., name:..., age... }.
+
+// Create a function groupById(arr) that creates an object from it, 
+// with id as the key, and array items as values.
+
+function groupById(arr) {
+  return arr.reduce((obj, value) => {
+    obj[value.id] = value;
+    return obj;
+  }, {});
+}
