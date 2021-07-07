@@ -765,3 +765,15 @@ function groupById(arr) {
     return obj;
   }, {});
 }
+
+// 자식 DOM
+// 아래 페이지를 살펴봅시다.
+<html>
+  <body>
+    <div>사용자:</div>
+    <ul>
+      <li>John</li>
+      <li>Pete</li>
+    </ul>
+  </body>
+</html>;
