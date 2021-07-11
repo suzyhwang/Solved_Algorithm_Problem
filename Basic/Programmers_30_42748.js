@@ -23,15 +23,14 @@ function solution(array, commands) {
   let a;
   for (let i = 0; i < commands.length; i++) {
     a = array.slice(commands[i][0] - 1, commands[i][1]);
-    if (a.length === 0) {
-      a = array.slice(commands[i][0] - 1, commands[i][1] + 1);
-    }
+    // if(a.length === 0){
+    //     a = array.slice(commands[i][0]-1,commands[i][1]+1)
+    // }
     a.sort((a, b) => a - b)[commands[i][2]];
-    if (a.length === 1) {
-      result.push(a[0]);
-    } else {
-      result.push(a[[commands[i][2] - 1]]);
-    }
+    // if(a.length === 1){
+    //  result.push(a[0])
+    // }else{
+    result.push(a[[commands[i][2] - 1]]);
   }
   return result;
 }
