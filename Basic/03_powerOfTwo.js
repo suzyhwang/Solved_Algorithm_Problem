@@ -35,14 +35,17 @@
 
 function powerOfTwo(num) {
   // TODO: 여기에 코드를 작성합니다.
-  // 수를 입력받아 2의 거듭제곱인지 여부 리턴
-  // 2의 거듭 제곱
-  // 1 4 8 16
-  let arr = [1];
-  let n = 2;
-  while (n <= num) {
-    n = n * 2;
-    arr.push(n);
+  // 수를 입력받아 2의 거듭제곱인지 여부를 리턴해야 합니다.
+  // 16은 2의 4 거듭제곱이다
+  // 22는 2의 거듭제곱이 아니다
+  // 2를 계속 곱해서 맞으면 된다
+  let two = 2;
+  while (num > two) {
+    two = two * 2;
   }
-  return arr.includes(num);
+  if (num === two || num === 1) {
+    return true;
+  } else {
+    return false;
+  }
 }
